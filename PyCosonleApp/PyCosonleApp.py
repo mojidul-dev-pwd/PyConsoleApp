@@ -44,6 +44,20 @@ print(b.lower())
 #The strip() method removes any whitespace from the beginning or the end
 cc = " Hello, World! "
 print(cc.strip())
+print(cc.replace("H","J"))
+dd =cc.split(",")
+print(dd[0])
+
+# f format
+age = 45
+txt = f"My name is Mojidul, I am {age}"
+print(txt)
+
+# Display the price with 2 decimals
+price = 59
+prodPrice = f"The price is {price:.2f} dollars"
+print(prodPrice)
+
 
 #bytes is an immutable object
 numList = [1,3,5,6,255,252] #Range 0 to 255
