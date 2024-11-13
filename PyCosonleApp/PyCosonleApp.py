@@ -86,5 +86,108 @@ list1 = ["abc", 34, True, 40, "male"]
 fruitList2 = list(("apple", "banana", "cherry"))
 print(fruitList2)
 
-
-
+# access a list
+print('Access a list')
+testlist = ["apple", "banana", "cherry", "orange", "kiwi", "melon", "mango"]
+print(testlist[2:5])
+#get from start to 4 elements
+print(testlist[:4])
+# start from position 3 to end
+print(testlist[2:])
+#Negative indexing means starting from the end of the list.
+#This example returns the items from index -4 (included) to index -1 (excluded)
+#Remember that the last item has the index -1,
+print(testlist[-4:-1])
+if "apple" in testlist:
+  print("Yes, 'apple' is in the fruits list")
+print(testlist)
+testlist[4] = "blackcurrant"
+print(testlist)
+# first index is start from(array) then last index upto this number of elements change by
+testlist[1:3] = ["blackcurrant", "watermelon"]
+print(testlist)
+testlist.insert(2, "watermelon")
+print(testlist)
+testlist.append("orange")
+print(testlist)
+tropical = ["mango", "pineapple", "papaya"]
+#add another list items
+testlist.extend(tropical)
+print(testlist)
+#add tuples into list items
+thistuple = ("kiwi", "Hang")
+testlist.extend(thistuple)
+print(testlist)
+#remove specific item from lists(Remove the first occurrence)
+testlist.remove("watermelon")
+print(testlist)
+#Remove the second item from a list
+testlist.pop(1)
+print(testlist)
+#remove the last index from a list items
+testlist.pop()
+print(testlist)
+#remove another way
+del testlist[0]
+print(testlist)
+anotherlistRemove = ["apple", "banana", "cherry"]
+del anotherlistRemove
+#print(anotherlistRemove)
+listTest2 = ["apple", "banana", "cherry"]
+#after clear a list is empty now
+listTest2.clear()
+print('Length of this list :', len(listTest2))
+numbers = [2, 3, 5, 2, 11, 2, 7]
+# check the count of 2
+count = numbers.count(2)
+print('Count of 2:', count)
+#loop
+looplist = ["apple", "banana", "cherry"]
+for x in looplist:
+  print(x)
+#loop through index
+print('Loop through index')
+for i in range(len(looplist)):
+  print(looplist[i])
+for i in range(3):
+    print(i)
+print('Using while loop')
+i=0
+while i < len(looplist):
+    print(looplist[i])
+    i = i+1
+print('Looping Using List Comprehension')
+[print(x) for x in looplist]
+print('create a new list from existing list items apply condition')
+fruits = ["apple", "kiwi", "banana", "cherry", "mango"]
+newlist = []
+for x in fruits:
+  if "a" in x:
+    newlist.append(x)
+print(newlist)
+print('another way to create a new list')
+newlist11 = [x for x in fruits if "a" in x]
+#newlist = [x for x in fruits if x != "apple"]
+print(newlist11)
+print('sorted list')
+fruits.sort()
+print(fruits)
+print('sort with descending')
+fruits.sort(reverse = True)
+print(fruits)
+fruits.reverse()
+print(fruits)
+print('copy a list')
+mylist = fruits.copy()
+print(mylist)
+print('using list method to copy')
+mylist2 = list(fruits)
+print(mylist2)
+print('using slice : operator to copy a list')
+mylist3 = fruits[:]
+print(mylist3)
+print('using +, loop with append and extend() method we create a join list')
+list1 = ["a", "b", "c"]
+list2 = [1, 2, 3]
+list3 = list1 + list2
+print(list3)
