@@ -385,3 +385,81 @@ print(set1)
 fruits = {"apple", "banana", "cherry"}
 x = fruits.copy()
 print(x)
+print("=============dictionary======================")
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+print(thisdict)
+# duplicate not allowed
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964,
+  "year": 2020
+}
+print(thisdict)
+thisdict = dict(name = "Mojidul", age = 41, country = "Bangladesh")
+print(thisdict)
+x = thisdict["name"]
+print(x)
+x = thisdict.get("country")
+print(x)
+x = thisdict.keys()
+print(x)
+x = thisdict.values()
+print(x)
+x = thisdict.items()
+print(x)
+if "name" in thisdict:
+  print("Yes, 'model' is one of the keys in the thisdict dictionary")
+thisdict["name"] = 'Mojidul Islam'
+x = thisdict.get("name")
+print(x)
+thisdict.update({"age": 45})
+print(thisdict)
+#add an item
+thisdict["color"] = "red"
+print(thisdict)
+thisdict.update({"color": "green"})
+print(thisdict)
+thisdict.pop("age")
+print(thisdict)
+thisdict.popitem()
+print(thisdict)
+del thisdict["country"]
+print(thisdict)
+mydict = thisdict.copy()
+print(mydict)
+mydict = dict(thisdict)
+print(mydict)
+thisdict.clear()
+print(thisdict)
+del thisdict
+#print(len(thisdict))
+#nested loop
+child1 = {
+  "name" : "Emil",
+  "year" : 2004
+}
+child2 = {
+  "name" : "Tobias",
+  "year" : 2007
+}
+child3 = {
+  "name" : "Linus",
+  "year" : 2011
+}
+
+myfamily = {
+  "child1" : child1,
+  "child2" : child2,
+  "child3" : child3
+}
+
+for x, obj in myfamily.items():
+  print(x)
+
+  for y in obj:
+    print(y + ':', obj[y])
