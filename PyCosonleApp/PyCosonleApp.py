@@ -6,6 +6,8 @@
 Hello multiline comment
 Test multiline comment
 """
+from PyCosonleApp.MyClass import MyClass
+
 #from tkinter.scrolledtext import example
 
 name = 'Mojidul Islam'
