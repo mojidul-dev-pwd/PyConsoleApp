@@ -536,3 +536,32 @@ def tri_recursion(k):
   return result
 res = tri_recursion(6)
 print("Recursion Example Results:", res)
+# lamda expression
+x = lambda a : a + 10
+print(x(5))
+x = lambda a, b : a * b
+print(x(5, 6))
+x = lambda a,b,c:a+b+c
+print(x(3,4,5))
+def myfunc(n):
+  return lambda a : a * n
+mydoubler = myfunc(2)
+print(mydoubler(11))
+#Array
+cars = ["Ford", "Volvo", "BMW"]
+print(cars)
+cars.append("Honda")
+print(cars)
+#remove the second value of array
+cars.pop(1)
+print(cars)
+cars.remove("Ford") # if not found getting error
+print(cars)
+x = cars.count("BMW")
+print(x)
+cars.reverse()
+print(cars)
+cars.sort()
+print(cars)
+x = cars.index("Honda")
+print('index of arrary',x)
