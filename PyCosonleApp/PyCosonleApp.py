@@ -463,3 +463,76 @@ for x, obj in myfamily.items():
 
   for y in obj:
     print(y + ':', obj[y])
+
+# conditional & if statement
+a = 200
+b = 33
+if b > a:
+  print("b is greater than a")
+elif a == b:
+  print("a and b are equal")
+else:
+  print("a is greater than b")
+#Short Hand If
+if a > b: print("a is greater than b")
+print("A") if a > b else print("B")
+a = 200
+b = 33
+c = 500
+if a > b and c > a:
+  print("Both conditions are True")
+if a > b or a > c:
+  print("At least one of the conditions is True")
+if not a > b:
+  print("a is NOT greater than b")
+#nested if
+x = 41
+
+if x > 10:
+  print("Above ten,")
+  if x > 20:
+    print("and also above 20!")
+  else:
+    print("but not above 20.")
+a = 33
+b = 200
+if b > a:
+  pass
+# having an empty if statement like this, would raise an error without the pass statement
+i = 0
+while i < 6:
+  i += 1
+  if i == 3:
+    continue
+  print(i)
+fruits = ["apple", "banana", "cherry"]
+for x in fruits:
+  print(x)
+  if x == "banana":
+    break
+def my_function(fname, lname):
+  print(fname + " " + lname)
+my_function("Mojidul", "Islam")
+#If the number of arguments is unknown, add a * before the parameter name:
+def my_function(*kids):
+  print("The youngest child is " + kids[2])
+my_function("Emil", "Tobias", "Linus")
+#If the number of keyword arguments is unknown, add a double ** before the parameter name:
+def my_function(**kid):
+  print("His last name is " + kid["lname"])
+my_function(fname = "Nayeem", lname = "Islam")
+#Default Parameter Value
+def my_function(country = "Bangladesh"):
+  print("I am from " + country)
+my_function("Soudi Arabia")
+my_function()
+def no_return_function():
+  pass
+def tri_recursion(k):
+  if(k > 0):
+    result = k + tri_recursion(k - 1)
+  else:
+    result = 0
+  return result
+res = tri_recursion(6)
+print("Recursion Example Results:", res)
