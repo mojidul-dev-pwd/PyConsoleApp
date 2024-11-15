@@ -6,6 +6,8 @@
 Hello multiline comment
 Test multiline comment
 """
+#from tkinter.scrolledtext import example
+
 name = 'Mojidul Islam'
 print(name)
 # from math import cos, radians
@@ -75,6 +77,12 @@ x = None
 print(type(x))
 
 #List declaration
+'''
+List is a collection which is ordered and changeable. Allows duplicate members.
+Tuple is a collection which is ordered and unchangeable. Allows duplicate members.
+Set is a collection which is unordered, unchangeable*, and unindexed. No duplicate members.
+Dictionary is a collection which is ordered** and changeable. No duplicate members.
+'''
 fruitList = ["apple", "banana", "cherry"]
 print(type(fruitList))
 print(len(fruitList))
@@ -191,3 +199,189 @@ list1 = ["a", "b", "c"]
 list2 = [1, 2, 3]
 list3 = list1 + list2
 print(list3)
+print('Tuple items are ordered, unchangeable, and allow duplicate values.')
+thistuple = ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
+print(thistuple)
+print(len(thistuple))
+print(type(thistuple))
+print('Access Tuple Items')
+print(thistuple[1]) # start begin using index
+print(thistuple[-1]) # start from last item
+print(thistuple[2:5])
+print(thistuple[:4])
+print(thistuple[2:])
+print(thistuple[-4:-1])
+if "apple" in thistuple:
+  print("Yes, 'apple' is in the fruits tuple")
+thistuple2 = ("apple", "banana", "cherry")
+y = list(thistuple2)
+y.append("orange")
+thistuple2 = tuple(y)
+print(thistuple2)
+print('using del to delete the tuple')
+deltuple = ("apple", "banana", "cherry")
+print(len(deltuple))
+del deltuple
+#print(len(deltuple))
+print('Unpacking a tuple')
+fruits = ("apple", "banana", "cherry")
+(green, yellow, red) = fruits
+print(green)
+print(yellow)
+print(red)
+#Assign the rest of the values as a list called "red":
+(green, yellow, *red) = fruits
+print(green)
+print(yellow)
+print(red)
+#anohter way
+(green, *tropic, red) = fruits
+print(green)
+print(tropic)
+print(red)
+#how to add one more item in tuple
+this_tuple = ("apple", "banana", "cherry")
+y = ("orange",)
+this_tuple += y
+print(this_tuple)
+#how to remove tuple item
+y = list(this_tuple)
+y.remove("apple")
+this_tuple = tuple(y)
+print(this_tuple)
+#apply loop in a tuple
+for x in this_tuple:
+  print(x)
+print('another way for loop')
+for i in range(len(this_tuple)):
+  print(this_tuple[i])
+print('while loop')
+wi=0
+while wi<len(this_tuple):
+    print(this_tuple[i])
+    wi = wi + 1
+print('tuple join')
+tuple1 = ("a", "b" , "c")
+tuple2 = (1, 2, 3)
+tuple3 = tuple1 + tuple2
+print(tuple3)
+print('another way to join tuple')
+tuple3 = tuple1 + tuple2
+print(tuple3)
+print('multiple tuple')
+mutiple_tuple = this_tuple * 2
+print(mutiple_tuple)
+no_items_tuple = (1, 3, 7, 8, 7, 5, 4, 6, 8, 5)
+x = no_items_tuple.count(5)
+print(x)
+x = no_items_tuple.index(8)
+print(x)
+print('A set is a collection which is unordered, unchangeable*, and unindexed.')
+example_set = {"Apple", "Banana", "Orange", "Guava"}
+print(example_set)
+print('Set items are unordered, unchangeable, and do not allow duplicate values.')
+#not show error but remove itself duplication and consider True and 1 are same
+thisset = {"apple", "banana", "cherry", "apple",True,1,2,False, 0}
+print(thisset)
+print(type(thisset))
+# note the double round-brackets
+thisset11 = set(("apple", "banana","orange", "cherry"))
+print(thisset11)
+for x in thisset11:
+  print(x)
+#return true or false
+print("banana" in thisset11)
+print("banana" not in thisset11)
+thisset11.add("lemon")
+print(thisset11)
+tropical = {"pineapple", "mango", "papaya"}
+thisset11.update(tropical)
+print(thisset11)
+#The object in the update() method does not have to be a set, it can be
+# any iterable object (tuples, lists, dictionaries etc.).
+mylist = ["kiwi", "orange"]
+thisset11.update(mylist)
+print(thisset11)
+thisset11.remove("orange")
+print(thisset11)
+#Remove "banana" by using the discard() method
+thisset11.discard("banana")
+print(thisset11)
+#If the item to remove does not exist, discard() will NOT raise an error.
+#pop() methods remove random item and return this item
+x = thisset11.pop()
+print(x)
+print(thisset11)
+#clear() method empties the set
+thisset11.clear()
+print(thisset11)
+#del keyword will delete the set completely
+del thisset11
+#print(thisset11)
+print('using join method in set')
+set1 = {"a", "b", "c"}
+set2 = {1, 2, 3}
+set3 = set1.union(set2)
+print(set3)
+print('using | operator method in set')
+set4 = set1 | set2
+print(set4)
+set3 = {"John", "Elena"}
+set4 = {"apple", "bananas", "cherry"}
+myset = set1.union(set2, set3, set4)
+print(myset)
+print('you can join set and tuple')
+x = {"a", "b", "c"}
+y = (1, 2, 3)
+z = x.union(y)
+print(z)
+#The  | operator only allows you to join sets with sets,
+# and not with other data types like you can with the  union() method.
+#Both union() and update() will exclude any duplicate items.
+set1 = {"apple", "banana", "cherry"}
+set2 = {"google", "microsoft", "apple"}
+set3 = set1.intersection(set2)
+print(set3)
+#The & operator only allows you to join sets with sets,
+# and not with other data types like you can with the intersection() method.
+set1 = {"apple", 1,  "banana", 0, "cherry"}
+set2 = {False, "google", 1, "apple", 2, True}
+set3 = set1.intersection(set2)
+print(set3)
+#The difference() method will return a new set that will contain only the items
+# from the first set that are not present in the other set.
+set1 = {"apple", "banana", "cherry"}
+set2 = {"google", "microsoft", "apple"}
+set3 = set1.difference(set2)
+print(set3)
+#You can use the - operator instead of the difference() method, and you will get the same result.
+#- operator only allows you to join sets with sets, and not with other
+# data types like you can with the difference() method.
+set3 = set1 - set2
+print(set3)
+#The difference_update() method will also keep the items from the first set that are not in the other set,
+# but it will change the original set instead of returning a new set.
+set1 = {"apple", "banana", "cherry"}
+set2 = {"google", "microsoft", "apple"}
+set1.difference_update(set2)
+print(set1)
+#The symmetric_difference() method will keep only the elements that are NOT present in both sets.
+set1 = {"apple", "banana", "cherry"}
+set2 = {"google", "microsoft", "apple"}
+set3 = set1.symmetric_difference(set2)
+print(set3)
+#You can use the ^ operator instead of the symmetric_difference() method, and you will get the same result.
+set1 = {"apple", "banana", "cherry"}
+set2 = {"google", "microsoft", "apple"}
+set3 = set1 ^ set2
+print(set3)
+# ^ operator only allows you to join sets with sets
+# The symmetric_difference_update() method will also keep all but the duplicates,
+# but it will change the original set instead of returning a new set.
+set1 = {"apple", "banana", "cherry"}
+set2 = {"google", "microsoft", "apple"}
+set1.symmetric_difference_update(set2)
+print(set1)
+fruits = {"apple", "banana", "cherry"}
+x = fruits.copy()
+print(x)
