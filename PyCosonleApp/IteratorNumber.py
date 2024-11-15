@@ -36,3 +36,14 @@ myiter = iter(myclass)
 
 for x in myiter:
   print(x)
+
+#decalre global variable
+x = 300
+
+def myfunc():
+  global x
+  x = 200
+
+myfunc()
+
+print(x)

@@ -1,13 +1,12 @@
 # import sys
 # write a comment line
 # print("hello")
+import mymodule as mx
 
 """
 Hello multiline comment
 Test multiline comment
 """
-from PyCosonleApp.MyClass import MyClass
-
 #from tkinter.scrolledtext import example
 
 name = 'Mojidul Islam'
@@ -567,3 +566,9 @@ cars.sort()
 print(cars)
 x = cars.index("Honda")
 print('index of arrary',x)
+
+#call another module
+a11 = mx.person1["age"]
+print(a11)
+msg = mx.greeting("Mojidul Islam")
+print(msg)
