@@ -6,6 +6,7 @@ import platform
 import datetime
 import math
 import json
+import re
 """
 Hello multiline comment
 Test multiline comment
@@ -651,3 +652,37 @@ x = {
 }
 print(json.dumps(x, indent=4))
 print(json.dumps(x, indent=4, sort_keys=True))
+#regular expression test
+#Check if the string starts with "The" and ends with "Spain":
+txt = "The rain in Spain"
+x = re.search("^The.*Spain$", txt)
+if x:
+  print("YES! We have a match!")
+else:
+  print("No match")
+#findall method
+x = re.findall("ai", txt)
+print(x)
+x = re.findall("Portugal", txt)
+print(x)
+#Split the string at every white-space character
+x = re.split("\s", txt)
+print(x)
+#Split the string at the first white-space character
+x = re.split("\s", txt, 1)
+print(x)
+#Replace all white-space characters with the digit "9"
+x = re.sub("\s", "9", txt)
+print(x)
+x = re.sub("\s", "9", txt, 2)
+print(x)
+#Search for an upper case "S" character in the beginning of a word, and print its position
+x = re.search(r"\bS\w+", txt)
+print(x.span())
+#Search for an upper case "S" character in the beginning of a word, and print the word
+x = re.search(r"\bS\w+", txt)
+print(x.group())
+
+
+
+
