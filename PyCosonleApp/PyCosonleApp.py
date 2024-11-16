@@ -2,7 +2,8 @@
 # write a comment line
 # print("hello")
 import mymodule as mx
-
+import platform
+import datetime
 """
 Hello multiline comment
 Test multiline comment
@@ -572,3 +573,31 @@ a11 = mx.person1["age"]
 print(a11)
 msg = mx.greeting("Mojidul Islam")
 print(msg)
+#built in module
+x = platform.system()
+print(x)
+y = platform.processor()
+print(y)
+x = dir(platform)
+print(x)
+print("============ datetime ==============")
+dt = datetime.datetime.now()
+print(dt)
+print(dt.year) #shows only year
+print(dt.strftime("%A")) # shows only day name like friday
+#create a date object
+x = datetime.datetime(2020, 5, 17)
+print(x)
+ddmmyyyy = dt.strftime("%d-%m-%Y") #shows dd-mm-yyyy
+print(ddmmyyyy)
+hhmmss = dt.strftime("%H-%M-%S")
+print(hhmmss)
+hhmmssamorpm = dt.strftime("%I-%M-%S %p")
+print(hhmmssamorpm)
+local_version_date = dt.strftime("%x")
+print(local_version_date)
+local_vertion_time = dt.strftime("%X")
+print(local_vertion_time)
+microsecond = dt.strftime("%f")
+print(microsecond)
+
