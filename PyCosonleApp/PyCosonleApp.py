@@ -4,6 +4,8 @@
 import mymodule as mx
 import platform
 import datetime
+import math
+import json
 """
 Hello multiline comment
 Test multiline comment
@@ -600,4 +602,52 @@ local_vertion_time = dt.strftime("%X")
 print(local_vertion_time)
 microsecond = dt.strftime("%f")
 print(microsecond)
-
+x = min(5, 10, 25)
+y = max(5, 10, 25)
+print(x)
+print(y)
+x = abs(-7.25)
+print(x)
+x = pow(4, 3)
+print(x)
+sqrt = math.sqrt(4)
+print(sqrt)
+x = math.ceil(1.4)
+z = math.floor(1.5)
+y = math.floor(1.4)
+print(x) # returns 2
+print(y) # returns 1
+print(z)
+x = math.pi
+print(x)
+#Convert from JSON to Python
+x = '{"name":"Mojidul","Country":"Bangladesh"}'
+# parse x:
+y = json.loads(x)
+# the result is a Python dictionary:
+print(y["Country"])
+#Convert from Python to JSON
+# a Python object (dict):
+x = {
+  "name": "John",
+  "age": 30,
+  "city": "New York"
+}
+# convert into JSON
+y = json.dumps(x)
+# the result is a JSON string:
+print(y)
+x = {
+  "name": "John",
+  "age": 30,
+  "married": True,
+  "divorced": False,
+  "children": ("Ann","Billy"),
+  "pets": None,
+  "cars": [
+    {"model": "BMW 230", "mpg": 27.5},
+    {"model": "Ford Edge", "mpg": 24.1}
+  ]
+}
+print(json.dumps(x, indent=4))
+print(json.dumps(x, indent=4, sort_keys=True))
