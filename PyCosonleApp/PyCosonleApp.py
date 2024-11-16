@@ -7,6 +7,7 @@ import datetime
 import math
 import json
 import re
+import camelcase
 """
 Hello multiline comment
 Test multiline comment
@@ -682,6 +683,15 @@ print(x.span())
 #Search for an upper case "S" character in the beginning of a word, and print the word
 x = re.search(r"\bS\w+", txt)
 print(x.group())
+x = re.findall('[a-c]', txt)
+print(x)
+#after install --
+#pip install camelcase
+#pip uninstall camelcase
+c = camelcase.CamelCase()
+txt = "hello world"
+print(c.hump(txt))
+
 
 
 
