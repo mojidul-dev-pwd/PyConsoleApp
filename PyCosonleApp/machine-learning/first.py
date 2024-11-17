@@ -3,8 +3,12 @@ Mean - The average value
 Median - The mid point value
 Mode - The most common value
 """
+import sys
+#import matplotlib
+#matplotlib.use('Agg')
 import numpy
 from scipy import stats
+import matplotlib.pyplot as plt
 
 speed = [99,86,87,88,111,86,103,87,94,78,77,85,86]
 x = numpy.mean(speed)
@@ -39,5 +43,25 @@ print(x)
 # each difference: find the square value: (-45.4)2 = 2061.16
 # The variance is the average number of these squared differences = 1432.2
 #Standard Deviation is often represented by the symbol Sigma: σ
+
+#What is the age that 75% of the people are younger than?
+ages = [5,31,43,48,50,41,7,11,15,39,80,82,32,2,8,6,25,36,27,61,31]
+x = numpy.percentile(ages, 75)
+print(x)
+#What is the age that 90% of the people are younger than?
+x = numpy.percentile(ages, 90)
+print(x)
+#Data Distribution
+#use the Python module Matplotlib to draw a histogram.
+#Create an array containing 250 random floats between 0 and 5
+x = numpy.random.uniform(0.0, 5.0, 250)
+#print(x)
+plt.hist(x, 5)
+plt.show()
+#Two  lines to make our compiler able to draw:
+plt.savefig(sys.stdout.buffer)
+sys.stdout.flush()
+
+#Normal Data Distribution
 
 
