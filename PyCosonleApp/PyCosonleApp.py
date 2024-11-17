@@ -1,6 +1,9 @@
 # import sys
 # write a comment line
 # print("hello")
+#C:\Users\MD Mojidul Islam\AppData\Local\Programs\Python\Python313\Scripts
+#pip list
+#pip install scipy
 import mymodule as mx
 import platform
 import datetime
