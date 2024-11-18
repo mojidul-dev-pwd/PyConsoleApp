@@ -9,6 +9,9 @@ import sys
 import numpy
 from scipy import stats
 import matplotlib.pyplot as plt
+from sklearn.metrics import r2_score
+import pandas
+from sklearn import linear_model
 
 speed = [99,86,87,88,111,86,103,87,94,78,77,85,86]
 x = numpy.mean(speed)
@@ -63,5 +66,81 @@ plt.savefig(sys.stdout.buffer)
 sys.stdout.flush()
 
 #Normal Data Distribution
+#A normal distribution graph is also known as the bell curve because of it's characteristic shape of a bell.
+#x = numpy.random.normal(5.0, 1.0, 100000)
+#plt.hist(x, 100)
+#plt.show()
+#A scatter plot is a diagram where each value in the data set is represented by a dot.
+x_axis = [5,7,8,7,2,17,2,9,4,11,12,9,6]
+y_axis = [99,86,87,88,111,86,103,87,94,78,77,85,86]
+plt.scatter(x_axis, y_axis)
+plt.show()
+x = numpy.random.normal(5.0, 1.0, 10)
+print('\n')
+print(x)
+y = numpy.std(x)
+print(y)
+
+#Linear Regression uses the relationship between the data-points to draw a straight line through all them.
+#The term regression is used when you try to find the relationship between variables.
+x = [5,7,8,7,2,17,2,9,4,11,12,9,6]
+y = [99,86,87,88,111,86,103,87,94,78,77,85,86]
+slope, intercept, r, p, std_err = stats.linregress(x, y)
+def myfunc(x):
+  return slope * x + intercept
+mymodel = list(map(myfunc, x))
+plt.scatter(x, y)
+plt.plot(x, mymodel)
+plt.show()
+print('p=',p)
+"""
+slope : float Slope of the regression line. 
+intercept : float Intercept of the regression line. 
+rvalue : float The Pearson correlation coefficient(relationship). 
+The square of ``rvalue`` is equal to the coefficient of determination. 
+pvalue : float The p-value for a hypothesis test whose null hypothesis is that the slope is zero, 
+using Wald Test with t-distribution of the test statistic. 
+stderr : float Standard error of the estimated slope (gradient), 
+under the assumption of residual normality. 
+intercept_stderr : float Standard error of the estimated intercept, under the assumption of residual normality.
+"""
+
+#Polynomial regression, like linear regression,
+# uses the relationship between the variables x and y
+# to find the best way to draw a line through the data points.
+x_axis_hour = [1,2,3,5,6,7,8,9,10,12,13,14,15,16,18,19,21,22]
+y_axis_speed = [100,90,80,60,60,55,60,65,70,70,75,76,78,79,90,99,99,100]
+mymodel1 = numpy.poly1d(numpy.polyfit(x_axis_hour, y_axis_speed, 3))
+myline1 = numpy.linspace(1,22,100)
+plt.scatter(x_axis_hour, y_axis_speed)
+plt.plot(myline1, mymodel1(myline1))
+plt.show()
+#The r-squared value ranges from 0 to 1, where 0 means no relationship, and 1 means 100% related.
+print(r2_score(y_axis_speed, mymodel1(x_axis_hour)))
+#The result 0.94 shows that there is a very good relationship,
+# and we can use polynomial regression in future predictions.
+
+data_frame_object = pandas.read_csv("C:\\Users\MD Mojidul Islam\Downloads\data.csv")
+x_df = data_frame_object[['Weight', 'Volume']]
+y_df = data_frame_object['CO2']
+#print(y_df)
+regr = linear_model.LinearRegression()
+regr.fit(x_df, y_df)
+#predict the CO2 emission of a car where the weight is 2300kg, and the volume is 1300cm3:
+predictedCO2 = regr.predict([[2300, 1300]])
+print(predictedCO2)
+#coefficient
+print(regr.coef_)
+"""
+The result array represents the coefficient values of weight and volume.
+Weight: 0.00755095
+Volume: 0.00780526
+We have predicted that a car with 1.3 liter engine, and a weight of 2300 to 3300 kg, 
+will release approximately 115 grams of CO2 for every kilometer it drives.
+Which shows that the coefficient of 0.00755095 is correct:
+107.2087328 + (1000 * 0.00755095) = 114.75968
+"""
+
+
 
 
