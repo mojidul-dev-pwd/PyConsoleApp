@@ -12,6 +12,8 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import r2_score
 import pandas
 from sklearn import linear_model
+from sklearn.preprocessing import StandardScaler
+scale = StandardScaler()
 
 speed = [99,86,87,88,111,86,103,87,94,78,77,85,86]
 x = numpy.mean(speed)
@@ -141,6 +143,28 @@ Which shows that the coefficient of 0.00755095 is correct:
 107.2087328 + (1000 * 0.00755095) = 114.75968
 """
 
+#Scale Features
+"""
+standardization method for scaling uses this formula:
+z = (x - u) / s
+Where z is the new value, x is the original value, u is the mean and s is the standard deviation.
+"""
+print("standardization method for scaling")
+df = pandas.read_csv("C:\\Users\MD Mojidul Islam\Downloads\data.csv")
+X_df = df[['Weight', 'Volume']]
+scaledX = scale.fit_transform(X_df)
+print(scaledX)
 
+#predict the CO2 emission from a car
+#When the data set is scaled, you will have to use the scale when you predict values
+df1 = pandas.read_csv("C:\\Users\MD Mojidul Islam\Downloads\data.csv")
+X_df = df1[['Weight', 'Volume']]
+Y_df = df1['CO2']
+scaledX = scale.fit_transform(X_df)
+regr = linear_model.LinearRegression()
+regr.fit(scaledX, Y_df)
+scaled = scale.transform([[2300, 1.3]])
+predictedCO2 = regr.predict([scaled[0]])
+print(predictedCO2)
 
 
