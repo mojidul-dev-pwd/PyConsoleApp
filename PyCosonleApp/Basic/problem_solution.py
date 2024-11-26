@@ -110,6 +110,18 @@ def histogram(items):
 
 histogram([2, 3, 6, 5])
 
+def str_concat_test(lst):
+    result = ''
+    for element in lst:
+        result += str(element)
+    return result
+
+print(str_concat_test([1, 5, 12, 2]))
+
+name, age = "Mojidul Islam", 45
+address = "Dhaka, Bangladesh"
+print("Name: {}\nAge: {}\nAddress: {}".format(name, age, address))
+
 
 
 
