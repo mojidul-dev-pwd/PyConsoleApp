@@ -99,7 +99,16 @@ def is_contain_member(member_data, n):
 print('yes', is_contain_member([1, 5, 8, 3], 3))
 print(is_contain_member([5, 8, 3], -1))
 
+def histogram(items):
+    for n in items:
+        output = ""
+        times = n
+        while times>0:
+            output += "*"
+            times -=1
+        print(output)
 
+histogram([2, 3, 6, 5])
 
 
 
