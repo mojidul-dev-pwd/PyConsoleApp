@@ -1,5 +1,6 @@
 import sys
 import datetime
+from functools import reduce
 from math import pi
 import calendar
 from datetime import date
@@ -11,6 +12,9 @@ import multiprocessing
 import cProfile
 import getpass
 import socket
+import time
+import glob
+import json
 
 #sum of 1 to 100 numbers
 num = 100
@@ -186,3 +190,96 @@ ip_addresses = socket.gethostbyname_ex(local_hostname)[2]
 filtered_ips = [ip for ip in ip_addresses if not ip.startswith("127.")]
 first_ip = filtered_ips[:1]
 print(first_ip[0])
+
+def sum_digit_number(num):
+    x = num // 1000
+    x1 = (num - x * 1000) // 100
+    x2 = (num - x * 1000 - x1 * 100) // 10
+    x3 = num - x * 1000 - x1 * 100 - x2 * 10
+    return x + x1 + x2 + x3
+print(sum_digit_number(5245))
+#To sort three integers without using conditional statements and loops.
+x,y,z = 10,3,15
+min = min(x,y,z)
+max = max(x,y,z)
+middle = (x+y+z)-min-max
+print(min,middle,max)
+
+print(sys.copyright)
+
+print(sys.getrecursionlimit())
+
+list_of_colors = ['Red', 'White', 'Black']
+colors = '-'.join(list_of_colors)
+print(colors)
+
+num = [2, 3, 4, 5]
+print(all(x > 1 for x in num))
+print(all(x > 4 for x in num))
+#ASCII Value
+print(ord('a'))
+print(ord('A'))
+print(ord('1'))
+print(ord('@'))
+
+file_size = os.path.getsize("../files/USA_Housing.csv")
+print(file_size,"Bytes")
+#custom display
+x = 30
+y = 20
+print("%d+%d=%d" % (x, y, x+y))
+
+print(time.ctime())
+
+num_list = [45, 55, 60, 37, 100, 105, 220]
+
+# Use an anonymous lambda function with the filter function to filter
+# numbers in the list that are divisible by 15.
+result = list(filter(lambda x: (x % 15 == 0), num_list))
+print("Numbers divisible by 15 are", result)
+
+# wildcard patterns using glob
+file_list = glob.glob('*.*')
+print(file_list)
+
+nums_list = [34, 1, 0, -23, 12, -88]
+positive_nums = list(filter(lambda x: x>0, nums_list))
+print(positive_nums)
+
+#multiple all element in an array
+nums = [10, 20, 30]
+mul = reduce(lambda x,y: x*y, nums)
+print(mul)
+
+#memory location
+str1 = "Python"
+str2 = "Python"
+print("Memory location of str1 =", hex(id(str1)))
+print("Memory location of str2 =", hex(id(str2)))
+
+order_amt = 212.37465
+print('The total order amount comes to %.2f' % order_amt)
+print('The total order amount comes to %.3f' % order_amt)
+
+str1 = 'A8238i823acdeOUEI'
+print(any(c.islower() for c in str1))
+
+str1 = '122.22'
+print("Original String: ", str1)
+print("Added trailing zeros:")
+str1 = str1.ljust(8, '0')
+print(str1)
+str1 = str1.ljust(10, '0')
+print(str1)
+print("Added leading zeros:")
+str1 = '122.22'
+str1 = str1.rjust(8, '0')
+print(str1)
+str1 = str1.rjust(10, '0')
+print(str1)
+
+data = {'Alex': 1, 'Suresh': 2, 'Agnessa': 3}
+json_string = json.dumps(data)
+print(json_string)
+
+print(format(10, '08b'))
