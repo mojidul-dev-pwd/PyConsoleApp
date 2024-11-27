@@ -3,6 +3,14 @@ import datetime
 from math import pi
 import calendar
 from datetime import date
+import math
+import struct
+import platform
+import os
+import multiprocessing
+import cProfile
+import getpass
+import socket
 
 #sum of 1 to 100 numbers
 num = 100
@@ -37,7 +45,8 @@ print(now.strftime("%Y-%m-%d %H:%M:%S"))
 exam_st_date = (11, 12, 2014)
 print("date : %i / %i / %i" % exam_st_date)
 
-r = float(input("Input the radius of the circle : "))
+r = 1.1
+#r = float(input("Input the radius of the circle : "))
 area = pi * r ** 2
 print("The area of the circle with radius " + str(r) + " is: " + str(area))
 
@@ -122,11 +131,58 @@ name, age = "Mojidul Islam", 45
 address = "Dhaka, Bangladesh"
 print("Name: {}\nAge: {}\nAddress: {}".format(name, age, address))
 
+def sum_conditional(x,y):
+    isum = x+y
+    if isum in range(15,20):
+        return 20
+    else:
+        return isum
+print(sum_conditional(10, 6))
+print(sum_conditional(10, 12))
 
+def add_two_integer(a, b):
+    if not (isinstance(a, int) and isinstance(b, int)):
+        return "Inputs must be integers!"
+    return a+b
+print(add_two_integer('5', 6))
+print(add_two_integer(10, 20))
 
+#compound interest formula
+# I = P(1+r)**n
+def compound_interest(principal_amt, interest_rate, years):
+    total_interest = principal_amt * ((1 + (0.01 * interest_rate)) ** years)
+    return total_interest
+print(compound_interest(10000, 3.5, 7))
 
+# Calculate the distance between the two points using the distance formula.
+p1 = [4, 0]
+p2 = [6, 6]
+distance = math.sqrt(((p1[0] - p2[0]) ** 2) + ((p1[1] - p2[1]) ** 2))
+print(distance)
 
+#Python shell is executing in 32bit or 64bit mode on OS.
+print(struct.calcsize("P") * 8)
+#or
+architecture = platform.architecture()
+print(architecture)
+print(architecture[0])
+print("Name of the operating system:", os.name)
+print("Name of the OS system:", platform.system())
+print("Version of the operating system:", platform.release())
 
+print("Current File Name: ", os.path.realpath(__file__))
 
+cpu_count = multiprocessing.cpu_count()
+print(cpu_count)
 
+def sum():
+   print(1888888888888888888 + 266666666666666666666666)
+cProfile.run('sum()')
 
+print(getpass.getuser())
+
+local_hostname = socket.gethostname()
+ip_addresses = socket.gethostbyname_ex(local_hostname)[2]
+filtered_ips = [ip for ip in ip_addresses if not ip.startswith("127.")]
+first_ip = filtered_ips[:1]
+print(first_ip[0])
