@@ -412,3 +412,25 @@ def is_narcissistic_num(num_arr):
     return num_arr == sum([int(x) ** len(str(num_arr)) for x in str(num_arr)])
 print(is_narcissistic_num(153))
 print(is_narcissistic_num(1634))
+
+#same type increment return true
+def highest_lowest_num(str_1):
+    num_list_1 = list(map(int, str_1.split()))
+    return max(num_list_1), min(num_list_1)
+print("Highest and lowest number ",highest_lowest_num("1 4 5 77 9 0"))
+
+def increasing_trend(num_arr):
+    if (sorted(num_arr) == num_arr):
+        return True
+    else:
+        return False
+print(increasing_trend([1,2,3,4]))
+print(increasing_trend([-4,-3,-2,-1]))
+print(increasing_trend([-1,-2,-3,-4]))
+print(increasing_trend([2,4,6,8]))
+
+def sum_index_multiplier(num_arr):
+    print(enumerate(num_arr))
+    return sum(j * i for i, j in enumerate(num_arr))
+print(sum_index_multiplier([1,2,3,4]))
+print(sum_index_multiplier([3]))
