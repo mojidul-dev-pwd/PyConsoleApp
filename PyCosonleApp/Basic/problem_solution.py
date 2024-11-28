@@ -18,11 +18,11 @@ import json
 
 #sum of 1 to 100 numbers
 num = 100
-sum = 0
+sum1 = 0
 
 for i in range(num+1):
-    sum += i
-print(sum)
+    sum1 += i
+print(sum1)
 
 #odd number from 1 to 100
 o=[]
@@ -50,7 +50,9 @@ exam_st_date = (11, 12, 2014)
 print("date : %i / %i / %i" % exam_st_date)
 
 r = 1.1
-#r = float(input("Input the radius of the circle : "))
+"""
+r = float(input("Input the radius of the circle : "))
+"""
 area = pi * r ** 2
 print("The area of the circle with radius " + str(r) + " is: " + str(area))
 
@@ -79,8 +81,8 @@ def is_palindrome(word):
 print(is_palindrome("repaper"))
 
 filename = "test.java"
-f_extns = filename.split(".")
-print(f_extns)
+f_extents = filename.split(".")
+print(f_extents)
 
 color_list = ["Red", "Green", "White", "Black"]
 #print first and last color
@@ -124,10 +126,10 @@ def histogram(items):
 histogram([2, 3, 6, 5])
 
 def str_concat_test(lst):
-    result = ''
+    res11 = ''
     for element in lst:
-        result += str(element)
-    return result
+        res11 += str(element)
+    return res11
 
 print(str_concat_test([1, 5, 12, 2]))
 
@@ -135,12 +137,12 @@ name, age = "Mojidul Islam", 45
 address = "Dhaka, Bangladesh"
 print("Name: {}\nAge: {}\nAddress: {}".format(name, age, address))
 
-def sum_conditional(x,y):
-    isum = x+y
-    if isum in range(15,20):
+def sum_conditional(x1, y1):
+    ism = x1 + y1
+    if ism in range(15,20):
         return 20
     else:
-        return isum
+        return ism
 print(sum_conditional(10, 6))
 print(sum_conditional(10, 12))
 
@@ -179,9 +181,9 @@ print("Current File Name: ", os.path.realpath(__file__))
 cpu_count = multiprocessing.cpu_count()
 print(cpu_count)
 
-def sum():
+def sum2():
    print(1888888888888888888 + 266666666666666666666666)
-cProfile.run('sum()')
+cProfile.run('sum2()')
 
 print(getpass.getuser())
 
@@ -191,19 +193,19 @@ filtered_ips = [ip for ip in ip_addresses if not ip.startswith("127.")]
 first_ip = filtered_ips[:1]
 print(first_ip[0])
 
-def sum_digit_number(num):
-    x = num // 1000
-    x1 = (num - x * 1000) // 100
-    x2 = (num - x * 1000 - x1 * 100) // 10
-    x3 = num - x * 1000 - x1 * 100 - x2 * 10
-    return x + x1 + x2 + x3
+def sum_digit_number(num1):
+    x2 = num1 // 1000
+    x1 = (num1 - x2 * 1000) // 100
+    x2 = (num1 - x2 * 1000 - x1 * 100) // 10
+    x3 = num1 - x2 * 1000 - x1 * 100 - x2 * 10
+    return x2 + x1 + x2 + x3
 print(sum_digit_number(5245))
 #To sort three integers without using conditional statements and loops.
 x,y,z = 10,3,15
-min = min(x,y,z)
-max = max(x,y,z)
-middle = (x+y+z)-min-max
-print(min,middle,max)
+min1 = min(x, y, z)
+max1 = max(x, y, z)
+middle = (x+y+z) - min1 - max1
+print(min1, middle, max1)
 
 print(sys.copyright)
 
@@ -235,7 +237,7 @@ num_list = [45, 55, 60, 37, 100, 105, 220]
 
 # Use an anonymous lambda function with the filter function to filter
 # numbers in the list that are divisible by 15.
-result = list(filter(lambda x: (x % 15 == 0), num_list))
+result = list(filter(lambda x3: (x3 % 15 == 0), num_list))
 print("Numbers divisible by 15 are", result)
 
 # wildcard patterns using glob
@@ -243,12 +245,12 @@ file_list = glob.glob('*.*')
 print(file_list)
 
 nums_list = [34, 1, 0, -23, 12, -88]
-positive_nums = list(filter(lambda x: x>0, nums_list))
+positive_nums = list(filter(lambda x4: x4 > 0, nums_list))
 print(positive_nums)
 
 #multiple all element in an array
 nums = [10, 20, 30]
-mul = reduce(lambda x,y: x*y, nums)
+mul = reduce(lambda x5, y5: x5 * y5, nums)
 print(mul)
 
 #memory location
@@ -278,8 +280,135 @@ print(str1)
 str1 = str1.rjust(10, '0')
 print(str1)
 
-data = {'Alex': 1, 'Suresh': 2, 'Agnessa': 3}
+data = {'Fatima': 1, 'Nayeem': 2, 'Mojidul': 3}
 json_string = json.dumps(data)
 print(json_string)
 
 print(format(10, '08b'))
+
+#check the sum of three elements (each from an array) from three arrays is equal to a
+# target value. Print all those three-element combinations.
+
+import itertools
+from functools import partial
+
+# Define three lists and a target sum value.
+X = [10, 20, 20, 20]
+Y = [10, 20, 30, 40]
+Z = [10, 30, 40, 20]
+T = 70
+
+def check_sum_array(cap_n, *num_arr):
+    if sum(x6 for x6 in num_arr) == cap_n:
+        return True, num_arr
+    else:
+        return False, num_arr
+
+# Generate the Cartesian product of the three lists.
+pro = itertools.product(X, Y, Z)
+
+# Create a partial function using the 'check_sum_array' function and the target sum 'T'.
+func = partial(check_sum_array, T)
+
+# Use 'starmap' to apply the partial function to each element in the Cartesian product.
+sums = list(itertools.starmap(func, pro))
+
+# Use a set to store unique valid combinations.
+result = set()
+
+# Iterate through the sums and print unique valid combinations.
+for s in sums:
+    if s[0] == True and s[1] not in result:
+        result.add(s[1])
+        print(result)
+
+# permutation theory P(6,2) = Factorial(6) / Factorial(6-2) = 30
+# combination theory C(6,2) = Factorial(6) / Factorial(2) * Factorial(6-2) = 15
+
+# List to permute
+data = [1, 2, 3]
+string_maps = {"abc","def","ghi","jkl","mno","pqrs", "tuv","wxy","z" }
+result_perms = []
+result_com = []
+
+# Generate all permutations
+permutations = itertools.permutations(data)
+combinations = itertools.combinations(string_maps, 2)
+
+# Print permutations
+for perm in permutations:
+    result_perms.append(perm)
+print("Permutation Result")
+print(result_perms)
+
+# Print Combinations
+for com in combinations:
+    result_com.append(com)
+print("Combinations Result")
+print(result_com)
+
+def is_palindrome(n):
+    print(str(n)[::-1])
+    return str(n) == str(n)[::-1]
+
+# Test cases
+print(is_palindrome(100))    # False
+print(is_palindrome(252))    # True
+
+#Remove Duplicates from Array
+arr = [1, 2, 2, 3, 4, 4, 5]
+unique_arr = list(set(arr))
+print(unique_arr)
+
+def find_median(num_arr):
+    nums.sort()
+    n = len(num_arr)
+    # Calculate the middle index
+    m_index = n // 2
+    if n % 2 == 0:
+        return (num_arr[m_index-1]+ num_arr[m_index])/2
+    else:
+        return num_arr[m_index]
+print(find_median([1,2,3,4,5]))
+print(find_median([1,2,3,6,4,5]))
+
+def count_negative_positive_num(num_arr):
+    if not num_arr:
+        return []
+    return [len([x11 for x11 in num_arr if x11 < 0]), len([x12 for x12 in num_arr if x12 > 0])]
+print("Result of Negative and Positive Count = ", count_negative_positive_num( [1, 2, 3, -4, -5]))
+
+def is_valid_emp_code(emp_code):
+    # digit must be 8 or 12
+    #return len(emp_code) in [8, 12] and emp_code.isdigit()
+    # digit between 8 or 20
+    return emp_code.isdigit() and 8 <= len(emp_code) <= 20
+
+print(is_valid_emp_code('123456783'))
+
+def sum_smallest_three_num(num_arr):
+    return sum(sorted(num_arr)[:3])
+print("Sum Smallest three numbers = ",sum_smallest_three_num([10, 20, 30, 40, 50, 60, 7]))
+
+def mask_by_char(string_data):
+    print('*' * (len(string_data) - 5))
+    return '*' * (len(string_data) - 5) + string_data[-5:]
+print(mask_by_char("kdi39323swe"))
+
+def nums_cumulative_sum(nums_list1):
+    return [sum(nums_list1[:i1 + 1]) for i1 in range(len(nums_list1))]
+print(nums_cumulative_sum([10, 20, 30, 40, 50, 60, 7]))
+
+def adjacent_num_product(list_nums):
+    return max(a * b for a, b in zip(list_nums, list_nums[1:]))
+print("Multiple max two number = ",adjacent_num_product([1, 2, 3, 4, 5, 6]))
+
+def odd_even_position_with_index(num_arr):
+    return all(num_arr[i2] % 2 == i2 % 2 for i2 in range(len(num_arr)))
+print("Odd Even with position same odd or even ",odd_even_position_with_index([2, 1, 4, 3, 6, 7, 6, 3]))
+print("Odd Even with position same odd or even ",odd_even_position_with_index([2, 1, 4, 3, 6, 7, 6, 4]))
+
+def is_narcissistic_num(num_arr):
+    return num_arr == sum([int(x) ** len(str(num_arr)) for x in str(num_arr)])
+print(is_narcissistic_num(153))
+print(is_narcissistic_num(1634))
