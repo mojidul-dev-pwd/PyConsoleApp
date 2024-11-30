@@ -479,3 +479,36 @@ def is_not_prime(num_digit):
 #print(is_not_prime(12))
 for x in filter(is_not_prime, range(1, 101)):
     print(x)
+
+# Find a number that is maximum in its column and minimum in its row.
+def matrix_number(matrix):
+    result_1 = set(map(min, matrix)) & set(map(max, zip(*matrix)))
+    return list(result_1)
+print(matrix_number([[1,2], [2,3]]))
+print(matrix_number([[1,2,3], [3,4,5]]))
+print(matrix_number([[7,5,6], [3,4,4], [6,5,7]]))
+print(set(map(min, [[1,2], [2,3]])))
+print(set(map(max, zip(*([[1,2], [2,3]])))))
+
+def is_pan_digital_num(n):
+    return len(set(str(n))) == 10
+print("Is pan digital?", is_pan_digital_num(1223334444555556666667777777888888889999999990))
+print("Is pan digital?", is_pan_digital_num(1023456897))
+print(is_pan_digital_num(102345679))
+
+def oddish_evenish_num(n):
+    print(sum(map(int, str(n))))
+    return 'Oddish' if sum(map(int, str(n))) % 2 else 'Evenish'
+print(oddish_evenish_num(120))
+print(oddish_evenish_num(321))
+
+def unique_nums(nums_1):
+    return [i for i in nums_1 if nums_1.count(i) == 1]
+print(unique_nums([1,2,3,2,3,4,5]))
+
+def check_last_digit(x, y, z):
+    print(str(x + z)[-1])
+    print(str(y)[-1])
+    return str(x + z)[-1] == str(y)[-1]
+print(check_last_digit(12, 26, 44))
+print(check_last_digit(145, 129, 104))
