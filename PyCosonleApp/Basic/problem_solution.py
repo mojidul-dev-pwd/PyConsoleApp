@@ -15,6 +15,7 @@ import socket
 import time
 import glob
 import json
+import string
 
 #sum of 1 to 100 numbers
 num = 100
@@ -434,3 +435,47 @@ def sum_index_multiplier(num_arr):
     return sum(j * i for i, j in enumerate(num_arr))
 print(sum_index_multiplier([1,2,3,4]))
 print(sum_index_multiplier([3]))
+
+def oldest_student(students):
+    return max(students, key=students.get)
+print(oldest_student({"Mahi Sarkar": 12, "Ruhul Amin": 11,
+                      "Sara Jaker": 14, "Bodrul Islam": 11,
+                      "Nayeem Islam": 13}))
+
+def digit_distance_nums(num1: int, num2: int) -> int:
+    return sum(abs(i - j) for i, j in zip(map(int, str(num1)), map(int, str(num2))))
+print(digit_distance_nums(509, 510))
+
+for lower_letter in string.ascii_lowercase:
+    print(lower_letter, end=" ")
+print()
+for upper_letter in string.ascii_uppercase:
+    print(upper_letter, end=" ")
+print()
+print("Generate num array and string array using range from 1 to 10")
+nums = range(1, 10)
+print(list(nums))
+print(list(map(str, nums)))
+
+def is_not_prime(num_digit):
+    res = False
+    if num_digit > 1:
+        #print((num_digit//2))
+        # for i in range(2, (num_digit//2) + 1):
+        #print(int(math.sqrt(num_digit)))
+        for i in range(2, int(math.sqrt(num_digit)) + 1):
+            if (num_digit % i) == 0:
+                res = True
+                #print("not prime")
+                break
+            else:
+                res = False
+                #print("prime")
+        return res
+    else:
+        return res
+#print(is_not_prime(4))
+#print(is_not_prime(5))
+#print(is_not_prime(12))
+for x in filter(is_not_prime, range(1, 101)):
+    print(x)
