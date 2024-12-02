@@ -502,6 +502,7 @@ def oddish_evenish_num(n):
 print(oddish_evenish_num(120))
 print(oddish_evenish_num(321))
 
+#after removing duplicate shows unique array
 def unique_nums(nums_1):
     return [i for i in nums_1 if nums_1.count(i) == 1]
 print(unique_nums([1,2,3,2,3,4,5]))
@@ -512,3 +513,4 @@ def check_last_digit(x, y, z):
     return str(x + z)[-1] == str(y)[-1]
 print(check_last_digit(12, 26, 44))
 print(check_last_digit(145, 129, 104))
+
