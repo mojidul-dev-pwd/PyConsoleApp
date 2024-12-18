@@ -10,11 +10,11 @@ ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
 db = {
-    "tim": {
-        "username": "tim",
-        "full_name": "Tim Ruscica",
-        "email": "tim@gmail.com",
-        "hashed_password": "$2b$12$HxWHkvMuL7WrZad6lcCfluNFj1/Zp63lvP5aUrKlSTYtoFzPXHOtu",
+    "mojidul": {
+        "username": "mojidul",
+        "full_name": "Mojidul Islam",
+        "email": "mojidul31@gmail.com",
+        "hashed_password": "$2b$12$jEm4QD9RIw9O8Pxt8oPCq.93j07dx313UDN.NK9zBXhiLVVakB/UK",
         "disabled": False
     }
 }
@@ -130,3 +130,4 @@ async def read_users_me(current_user: User = Depends(get_current_active_user)):
 async def read_own_items(current_user: User = Depends(get_current_active_user)):
     return [{"item_id": 1, "owner": current_user}]
 
+print(get_password_hash("Admin123"))
