@@ -1,0 +1,7 @@
+
+2024-12-20 12:05:03-root-DEBUG-This is a debug message
+2024-12-20 12:05:03-root-INFO-This is a info message
+2024-12-20 12:05:03-root-WARNING-This is a warning message
+2024-12-20 12:05:03-root-ERROR-This is a error message
+2024-12-20 12:05:03-root-CRITICAL-This is a critical message
+2024-12-20 12:05:03-root-INFO-Addition method executed. Result = 11
